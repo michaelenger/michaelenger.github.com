@@ -1,0 +1,46 @@
+a {
+	color: inherit;
+	text-decoration: none;
+}
+a:hover {
+	color: #222;
+}
+
+body {
+	background: #eee;
+	color: #444;
+	font-family: 'Dosis', Helvetica, sans-serif;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+h1, h2 {
+	font-weight: normal;
+	margin: 0;
+}
+h2 {
+	font-size: 0.8em;
+}
+
+hgroup {
+	margin: 4em 0 2em;
+}
+
+.contact {
+	color: #999;
+	list-style: none;
+	margin: 0 auto;
+	padding: 0;
+	text-align: left;
+	width: 250px;
+}
+
+	.contact img {
+		opacity: 0.5;
+		height: 1em;
+		margin-right: 0.5em;
+	}
+
+	.contact li {
+		margin: 0.5em 0;
+	}
