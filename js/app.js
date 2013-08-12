@@ -1,4 +1,4 @@
-(function() {
+(function($) {
 "use strict";
 
 // Overkill? Yes. Spam? No.
@@ -13,11 +13,14 @@ if (window.addEventListener) {
 	window.addEventListener('scroll', function(e) {
 		var top = window.pageYOffset || document.documentElement.scrollTop;
 		if (top > 0 && top <= headerImage.parentNode.offsetHeight) {
-			var offset = 1 - ((headerImage.parentNode.offsetHeight - top) / headerImage.parentNode.offsetHeight);
-			headerImage.style.top = ((headerImage.parentNode.offsetHeight - headerImage.offsetHeight) * offset) + 'px';
-			console.log(headerImage.style.top);
+			var offset = 1 - ((headerImage.parentNode.offsetHeight - top) / headerImage.parentNode.offsetHeight),
+				offsetTop = ((headerImage.parentNode.offsetHeight - headerImage.offsetHeight) * offset);
+			console.log(offsetTop);
+			$(headerImage)
+				.stop()
+				.animate({top: offsetTop}, 25);
 		}
 	});
 }
 
-})();
+})(jQuery.noConflict());
