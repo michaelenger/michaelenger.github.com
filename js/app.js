@@ -15,7 +15,6 @@ if (window.addEventListener) {
 		if (top > 0 && top <= headerImage.parentNode.offsetHeight) {
 			var offset = 1 - ((headerImage.parentNode.offsetHeight - top) / headerImage.parentNode.offsetHeight),
 				offsetTop = ((headerImage.parentNode.offsetHeight - headerImage.offsetHeight) * offset);
-			console.log(offsetTop);
 			$(headerImage)
 				.stop()
 				.animate({top: offsetTop}, 25);
