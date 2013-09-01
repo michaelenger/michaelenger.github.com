@@ -4,7 +4,7 @@ a:hover {
 }
 
 body {
-	background: url('../img/background.png');
+	background: #eee;
 	color: #444;
 	font-family: Arial, sans-serif;
 }
@@ -27,13 +27,16 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: inherit;
 }
 
+h2 {
+	margin-top: 0;
+}
+
 header {
 	box-shadow: 0px 1px 1px black;
 	color: white;
 	font-family: 'Raleway', Arial, sans-serif;
 	font-size: 1.2em;
 	height: 500px;
-	margin: 0 0 2em;
 	text-align: center;
 	overflow: hidden;
 	position: relative;
@@ -88,7 +91,13 @@ img {
 	max-width: 100%;
 }
 
-#featured {}
+section {
+	padding: 2em 0;
+}
+
+#featured {
+	background: url('../img/background.png');
+}
 
 	#featured h2 {
 		display: none;
@@ -99,7 +108,14 @@ img {
 		margin-top: 2em;
 	}
 
-#projects {}
+#projects {
+	background: url('../img/tweed.png') #303030;
+	color: #eee;
+}
+
+	#projects a {
+		color: #8DC9EB;
+	}
 
 	#projects h3 {
 		font-size: 1.5em;

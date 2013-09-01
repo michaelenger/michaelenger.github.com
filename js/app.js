@@ -24,7 +24,7 @@ if (window.addEventListener) {
 
 // Load projects from GitHub
 $(document).ready(function() {
-	var projects = $('#projects'),
+	var projects = $('#projects .container'),
 		blacklist = [
 			'Ninja-vs-Samurai', 'NO-HTML5', 'GiantBomb-Recommengine', 'rpgdicebag', 'LoremIpsumCodaPlugin'
 		];
@@ -51,7 +51,7 @@ $(document).ready(function() {
 			projects.append('<div class="row">' + row + '</div>');
 		}
 
-		projects.find('#projects-loading').remove();
+		$('#projects-loading').remove();
 	});
 });
 
