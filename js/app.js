@@ -26,7 +26,7 @@ if (window.addEventListener) {
 $(document).ready(function() {
 	var projects = $('#projects .container'),
 		blacklist = [
-			'Ninja-vs-Samurai', 'NO-HTML5', 'GiantBomb-Recommengine', 'rpgdicebag', 'LoremIpsumCodaPlugin'
+			'Ninja-vs-Samurai', 'NO-HTML5', 'Giant-Bomb-Recommengine', 'rpgdicebag', 'LoremIpsumCodaPlugin'
 		];
 	$.get('https://api.github.com/users/michaelenger/repos?sort=updated', function(data) {
 		var count = 0,
