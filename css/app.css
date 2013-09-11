@@ -1,16 +1,16 @@
 a,
 a:hover {
-	color: #8e1445;
+	color: #EF6053;
 }
 
 body {
 	background: #eee;
 	color: #444;
-	font-family: Arial, sans-serif;
+	font-family: "Open Sans","HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
 }
 
 footer {
-	color: #aaa;
+	color: #82786E;
 	font-size: 0.75em;
 	margin: 5em 0 2em;
 	text-align: center;
@@ -22,11 +22,6 @@ footer {
 		width: 64px;
 	}
 
-h1, h2, h3, h4, h5, h6 {
-	font-family: 'Raleway', Arial, sans-serif;
-	font-weight: inherit;
-}
-
 h2 {
 	margin-top: 0;
 }
@@ -34,7 +29,6 @@ h2 {
 header {
 	box-shadow: 0px 1px 1px black;
 	color: white;
-	font-family: 'Raleway', Arial, sans-serif;
 	font-size: 1.2em;
 	height: 500px;
 	text-align: center;
@@ -56,7 +50,7 @@ header {
 	}
 
 	header p {
-		font-size: 0.75em;
+		font-size: 0.8em;
 		font-style: italic;
 		margin: 0.75em 0;
 		opacity: 0.7;
@@ -78,8 +72,8 @@ header {
 	}
 
 	header .vcard {
-		background: rgba(0,0,0,0.4);
-		bottom: 2em;
+		background: rgba(239,96,83,0.2);
+		bottom: 10%;
 		left: 50%;
 		margin: 0 -200px;
 		padding: 0.5em;
@@ -114,7 +108,7 @@ section {
 }
 
 	#projects a {
-		color: #8DC9EB;
+		color: #F0C096;
 	}
 
 	#projects h3 {
@@ -129,11 +123,6 @@ section {
 	}
 
 @media screen and (max-width:768px) {
-	header {
-		margin-left: -20px;
-		margin-right: -20px;
-	}
-
 	#featured .row {
 		margin-bottom: 0;
 		margin-top: 0;
