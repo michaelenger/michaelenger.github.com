@@ -18,7 +18,16 @@
 		 * Add events and initialize the app.
 		 */
 		init: function() {
-			app.loadGitHubProjects();
+			// Events
+			if (document.addEventListener) {
+				document.getElementById('more-link').addEventListener('click', function(e) {
+					e.preventDefault();
+					app.moreClicked();
+				});
+			}
+
+			// Do stuff
+//			app.loadGitHubProjects();
 			app.antiSpamMagicMissile();
 		},
 
@@ -68,8 +77,47 @@
 			}, false);
 			request.open('GET', 'https://api.github.com/users/michaelenger/repos?sort=updated', true);
 			request.send();
+		},
+
+		/**
+		 * "More" button was clicked.
+		 */
+		moreClicked: function() {
+			var projects = document.getElementById('projects');
+			app.scrollWindow(projects.offsetTop, 350);
+		},
+
+		/**
+		 * Scroll the window to target position.
+		 */
+		scrollWindow: function(target, duration) {
+
+			var start = window.scrollY,
+				diff = target - start,
+				time = Date.now();
+
+			function animationStep() {
+				var now = Date.now(),
+					dt = now - time,
+					step = (window.scrollY - start) / diff,
+					position = dt > duration ? target : Math.easeOutQuad(dt, start, diff, duration);
+
+				window.scroll(window.scrollX, position);
+
+				// We're done here
+				if (position != target) {
+					window.requestAnimationFrame(animationStep);
+				}
+			}
+
+			window.requestAnimationFrame(animationStep);
 		}
 
+	};
+
+	// Easing algorithm thanks to: https://github.com/danro/jquery-easing/blob/master/jquery.easing.js
+	Math.easeOutQuad = function (t, b, c, d) {
+		return -c *(t/=d)*(t-2) + b;
 	};
 
 	window.onload = function() {
