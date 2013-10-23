@@ -27,7 +27,7 @@
 			}
 
 			// Do stuff
-//			app.loadGitHubProjects();
+			app.loadGitHubProjects();
 			app.antiSpamMagicMissile();
 		},
 
