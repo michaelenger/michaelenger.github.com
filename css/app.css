@@ -54,6 +54,10 @@ header {
 		margin: 0 0 0.15em;
 	}
 
+		header h1 a:hover {
+			text-decoration: none;
+		}
+
 	header li {
 		line-height: 1.4em;
 	}
@@ -112,6 +116,7 @@ img {
 section {
 	min-height: 100%;
 	padding: 2em 0;
+	overflow: hidden;
 }
 
 .projects {}
