@@ -89,42 +89,33 @@ section {
 	padding: 2em 0;
 }
 
-	#featured h2 {
+.projects {}
+
+	.projects h2 {
 		display: none;
 	}
 
-	#featured .row {
+	.projects .row {
 		margin-bottom: 2em;
 		margin-top: 2em;
 	}
 
-#projects {
+.github-projects {
 	background: url('../img/tweed.png') #303030;
 	color: #eee;
 }
 
-	#projects a {
+	.github-projects a {
 		color: #F0C096;
 	}
 
-	#projects h3 {
+	.github-projects h3 {
 		font-size: 1.5em;
 	}
 
-	#projects .panel {
+	.github-projects .panel {
 		font-style: italic;
 		margin: 2em 0;
 		padding: 1em;
 		text-align: center;
 	}
-
-@media screen and (max-width:768px) {
-	#featured .row {
-		margin-bottom: 0;
-		margin-top: 0;
-	}
-
-	#featured .row > * {
-		margin-bottom: 2em;
-	}
-}

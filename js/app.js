@@ -24,9 +24,9 @@ if (window.addEventListener) {
 
 // Load projects from GitHub
 $(document).ready(function() {
-	var projects = $('#projects .container'),
+	var projects = $('#github-projects .container'),
 		blacklist = [
-			'Ninja-vs-Samurai', 'NO-HTML5', 'Giant-Bomb-Recommengine', 'spotify-flickrstream', 'LoremIpsumCodaPlugin'
+			'NO-HTML5', 'Giant-Bomb-Recommengine', 'spotify-flickrstream', 'rpgdicebag'
 		];
 	$.get('https://api.github.com/users/michaelenger/repos?sort=updated', function(data) {
 		var count = 0,
