@@ -7,12 +7,16 @@ body {
 	background: url('../img/background.png');
 	color: #444;
 	font-family: "Open Sans","HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
+	font-size: 18px;
+	height: 100%;
+	position: absolute;
+	width: 100%;
 }
 
 footer {
 	color: #82786E;
 	font-size: 0.75em;
-	margin: 5em 0 2em;
+	padding: 5em 0 2em;
 	text-align: center;
 }
 
@@ -22,16 +26,21 @@ footer {
 		width: 64px;
 	}
 
+h1, h2, h3, h4, h5, h6 {
+	font-weight: normal;
+}
+
 h2 {
 	margin-top: 0;
 }
 
 header {
+	background: url('../img/header.jpg') center center no-repeat;
+	background-size: cover;
+	background-attachment: fixed;
 	box-shadow: 0px 1px 1px black;
 	color: white;
-	font-size: 1.2em;
-	height: 500px;
-	text-align: center;
+	height: 100%;
 	overflow: hidden;
 	position: relative;
 }
@@ -50,7 +59,6 @@ header {
 	}
 
 	header p {
-		font-size: 0.7em;
 		font-style: italic;
 		margin: 0.75em 0;
 		opacity: 0.7;
@@ -62,23 +70,39 @@ header {
 		padding: 0;
 	}
 
-	header .image {
-		background: url('../img/header.jpg') center center no-repeat;
-		background-size: cover;
-		height: 200%;
+		header ul li {
+			display: inline;
+		}
+
+		header ul li:before {
+			content: '/';
+			margin: 0 0.5em;
+			opacity: 0.5;
+		}
+
+		header ul li:first-child:before {
+			display: none;
+		}
+
+	header .more {
+		bottom: 1em;
+		left: 50%;
+		margin-left: -30px;
+		opacity: 0.15;
 		position: absolute;
-		top: 0;
-		width: 100%;
+		transition: opacity 0.25s;
+		width: 60px;
+	}
+
+	header .more:hover {
+		opacity: 0.5;
 	}
 
 	header .vcard {
-		background: rgba(239,96,83,0.2);
-		bottom: 10%;
-		left: 50%;
-		margin: 0 -200px;
-		padding: 0.5em;
+		background: rgba(0,0,0,0.2);
+		padding: 1em;
 		position: absolute;
-		width: 400px;
+		margin-top: 1em;
 	}
 
 img {
@@ -86,6 +110,7 @@ img {
 }
 
 section {
+	min-height: 100%;
 	padding: 2em 0;
 }
 
@@ -93,6 +118,10 @@ section {
 
 	.projects h2 {
 		display: none;
+	}
+
+	.projects p {
+		font-size: 1.1em;
 	}
 
 	.projects .row {
@@ -114,8 +143,15 @@ section {
 	}
 
 	.github-projects .panel {
+		color: #ccc;
 		font-style: italic;
 		margin: 2em 0;
 		padding: 1em;
 		text-align: center;
 	}
+
+@media screen and (max-width:768px) {
+	header .vcard {
+		position: static;
+	}
+}
