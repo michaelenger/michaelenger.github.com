@@ -1,10 +1,10 @@
 a,
 a:hover {
-	color: #EF6053;
+	color: #9C3537;
 }
 
 body {
-	background: url('../img/background.png');
+	background: url('../img/escheresque.png');
 	color: #444;
 	font-family: Roboto, "Open Sans","HelveticaNeue-Light","Helvetica Neue Light","Helvetica Neue",Helvetica,Arial,"Lucida Grande",sans-serif;
 	font-size: 18px;
@@ -15,7 +15,7 @@ body {
 }
 
 footer {
-	color: #82786E;
+	box-shadow: 0 -1px 15px black;
 	font-size: 0.75em;
 	padding: 5em 0 2em;
 	text-align: center;
@@ -33,6 +33,10 @@ h1, h2, h3, h4, h5, h6 {
 
 h2 {
 	margin-top: 0;
+}
+
+h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
+	color: #444;
 }
 
 header {
@@ -120,7 +124,11 @@ section {
 	overflow: hidden;
 }
 
-.projects {}
+.projects {
+	background: rgba(255,255,255,0.5);
+	box-shadow: 0 1px 15px black;
+	position: relative;
+}
 
 	.projects h2 {
 		display: none;
@@ -134,20 +142,18 @@ section {
 		font-size: 1.1em;
 	}
 
-	.projects .row {
+	.projects .project {
 		margin-bottom: 2em;
 		margin-top: 2em;
+		padding-bottom: 0.5em;
+		padding-top: 0.5em;
 	}
 
 .github-projects {
-	background: url('../img/tweed.png') #303030;
+	background: url('../img/pw_maze_black.png') #303030;
 	color: #eee;
 	font-size: 0.85em;
 }
-
-	.github-projects a {
-		color: #F0C096;
-	}
 
 	.github-projects h3 {
 		font-size: 1.2em;
