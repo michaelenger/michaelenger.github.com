@@ -4,6 +4,15 @@
 	var app = {
 
 		/**
+		 * Projects that shouldn't be considered when building project list.
+		 *
+		 * @var array
+		 */
+		projectBlacklist: [
+			'NO-HTML5', 'Giant-Bomb-Recommengine', 'spotify-flickrstream', 'rpgdicebag'
+		],
+
+		/**
 		 * Look at this stuff. Isn't it neat? Wouldn't you say my collection's complete?
 		 */
 		antiSpamMagicMissile: function() {
@@ -35,37 +44,14 @@
 		 * Load GitHub projects.
 		 */
 		loadGitHubProjects: function() {
-			var section = document.getElementById('other-projects'),
-				projects = document.getElementById('github-projects'),
-				request = new XMLHttpRequest(),
-				blacklist = [
-					'NO-HTML5', 'Giant-Bomb-Recommengine', 'spotify-flickrstream', 'rpgdicebag'
-				];
+			var request = new XMLHttpRequest();
+
 
 			request.addEventListener('load', function() {
 				if (this.readyState == 4 && this.status == 200 ) {
-					var data = JSON.parse(this.responseText),
-						html = '',
-						count = 0;
-
-					html = '<div class="row">';
-					for (var i = 0; i < data.length; i++) {
-						if (blacklist.indexOf(data[i].name) != -1 || data[i].fork || !data[i].description) continue;
-
-						if (count != 0 && count % 4 == 0) {
-							html += '</div><div class="row">';
-						}
-						count++;
-
-						html += '<div class="col-sm-3 project">\
-							<h3><a href="' + data[i].html_url + '">' + data[i].name + '</a> <small>' + data[i].language + '</small></h3>\
-							<p>' + data[i].description + '</p>\
-						</div>';
-					}
-					html += '</div>';
-
-					if (html.length) {
-						projects.innerHTML = html;
+					var data = JSON.parse(this.responseText);
+					if (data.length) {
+						app.updateGitHubProjects(data);
 					}
 
 					document.getElementById('github-loading').remove();
@@ -73,10 +59,41 @@
 			}, false);
 			request.addEventListener("error", function() {
 				console.error(this.responseText);
-				section.remove(); // let's just pretend this never happened, shall we?
+				document.getElementById('other-projects').remove(); // let's just pretend this never happened, shall we?
 			}, false);
 			request.open('GET', 'https://api.github.com/users/michaelenger/repos?sort=updated', true);
 			request.send();
+		},
+
+		/**
+		 * Fill the GitHub projets section with info from retrieved data.
+		 *
+		 * @param object data Data for the projects
+		 */
+		updateGitHubProjects: function(data) {
+			var projects = document.getElementById('github-projects'),
+				html = '',
+				count = 0;
+
+			html = '<div class="row">';
+			for (var i = 0; i < data.length; i++) {
+				if (app.projectBlacklist.indexOf(data[i].name) != -1 || data[i].fork || !data[i].description) continue;
+
+				if (count != 0 && count % 4 == 0) {
+					html += '</div><div class="row">';
+				}
+				count++;
+
+				html += '<div class="col-sm-3 project">\
+					<h3><a href="' + data[i].html_url + '">' + data[i].name + '</a> <small>' + data[i].language + '</small></h3>\
+					<p>' + data[i].description + '</p>\
+				</div>';
+			}
+			html += '</div>';
+
+			if (html.length) {
+				projects.innerHTML = html;
+			}
 		},
 
 		/**
