@@ -126,6 +126,10 @@ section {
 		display: none;
 	}
 
+	.projects h3 {
+		margin-top: 0.5em;
+	}
+
 	.projects p {
 		font-size: 1.1em;
 	}
@@ -138,6 +142,7 @@ section {
 .github-projects {
 	background: url('../img/tweed.png') #303030;
 	color: #eee;
+	font-size: 0.85em;
 }
 
 	.github-projects a {
@@ -145,7 +150,7 @@ section {
 	}
 
 	.github-projects h3 {
-		font-size: 1.5em;
+		font-size: 1.2em;
 	}
 
 	.github-projects .panel {
@@ -156,7 +161,14 @@ section {
 		text-align: center;
 	}
 
+@media screen and (max-width:991px) {
+	.projects h3 {
+		margin-top: 0.25em;
+	}
+}
+
 @media screen and (max-width:768px) {
+
 	header .vcard {
 		position: static;
 	}

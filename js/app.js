@@ -46,7 +46,6 @@
 		loadGitHubProjects: function() {
 			var request = new XMLHttpRequest();
 
-
 			request.addEventListener('load', function() {
 				if (this.readyState == 4 && this.status == 200 ) {
 					var data = JSON.parse(this.responseText);
@@ -80,12 +79,14 @@
 				if (app.projectBlacklist.indexOf(data[i].name) != -1 || data[i].fork || !data[i].description) continue;
 
 				if (count != 0 && count % 4 == 0) {
-					html += '</div><div class="row">';
+					html += '<div class="clearfix visible-md visible-lg"></div>';
+				} else if (count != 0 && count % 3 == 0) {
+					html += '<div class="clearfix visible-sm"></div>';
 				}
 				count++;
 
-				html += '<div class="col-sm-3 project">\
-					<h3><a href="' + data[i].html_url + '">' + data[i].name + '</a> <small>' + data[i].language + '</small></h3>\
+				html += '<div class="col-md-3 col-sm-4 project">\
+					<h3><a href="' + data[i].html_url + '">' + data[i].name.replace(/-/g, ' ') + '</a> <small>' + data[i].language + '</small></h3>\
 					<p>' + data[i].description + '</p>\
 				</div>';
 			}
