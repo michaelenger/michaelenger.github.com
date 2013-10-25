@@ -142,10 +142,13 @@ section {
 	}
 
 	.projects .project {
-		margin-bottom: 2em;
-		margin-top: 2em;
-		padding-bottom: 0.5em;
-		padding-top: 0.5em;
+		border-bottom: 1px solid rgba(0,0,0,0.03);
+		padding-bottom: 2.5em;
+		padding-top: 2.5em;
+	}
+
+	.projects .project:last-child {
+		border-bottom: 0;
 	}
 
 .github-projects {
@@ -173,7 +176,9 @@ section {
 }
 
 @media screen and (max-width:768px) {
-
+	.projects h3 {
+		margin-top: 0;
+	}
 	header .vcard {
 		position: static;
 	}
