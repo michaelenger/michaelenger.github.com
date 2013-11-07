@@ -86,7 +86,7 @@
 				count++;
 
 				html += '<div class="col-md-3 col-sm-4 project">\
-					<h3><a href="' + data[i].html_url + '">' + data[i].name.replace(/-/g, ' ') + '</a> <small>' + data[i].language + '</small></h3>\
+					<h3><a href="' + (data[i].homepage ? data[i].homepage : data[i].html_url) + '">' + data[i].name.replace(/-/g, ' ') + '</a> <small>' + data[i].language + '</small></h3>\
 					<p>' + data[i].description + '</p>\
 				</div>';
 			}
