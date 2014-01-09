@@ -9,7 +9,7 @@
 		 * @var array
 		 */
 		projectBlacklist: [
-			'NO-HTML5', 'Giant-Bomb-Recommengine', 'spotify-flickrstream', 'rpgdicebag'
+			'NO-HTML5', 'Giant-Bomb-Recommengine', 'spotify-flickrstream'
 		],
 
 		/**
