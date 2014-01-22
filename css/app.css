@@ -93,17 +93,8 @@ header {
 		}
 
 	header .more {
-		bottom: 1em;
-		left: 50%;
 		margin-left: -30px;
-		opacity: 0.15;
-		position: absolute;
-		transition: opacity 0.25s;
 		width: 60px;
-	}
-
-	header .more:hover {
-		opacity: 0.5;
 	}
 
 	header .vcard {
@@ -121,6 +112,24 @@ section {
 	min-height: 100%;
 	padding: 2em 0;
 	overflow: hidden;
+}
+
+.more {
+	bottom: 1em;
+	left: 50%;
+	opacity: 0.65;
+	position: absolute;
+	text-align: center;
+	transition: opacity 0.25s;
+}
+
+	.more img {
+		opacity: 0.25;
+	}
+
+.more:hover {
+	opacity: 1;
+	text-decoration: none;
 }
 
 .projects {
@@ -142,12 +151,19 @@ section {
 		font-size: 1.1em;
 	}
 
+	.projects .more {
+		background: rgba(255,255,255,0.75);
+		border-radius: 1em;
+		margin-left: -6em;
+		padding: 0.25em 1em;
+	}
+
 	.projects .screenshot {
 		margin-bottom: 1em;
 	}
 
 .github-projects {
-	background: url('../img/pw_maze_black.png') #303030;
+	background: url('../img/pw_maze_black.png') #303030 fixed;
 	color: #eee;
 	font-size: 0.85em;
 }
@@ -167,6 +183,9 @@ section {
 @media screen and (max-width:991px) {
 	.projects h3 {
 		margin-top: 0.25em;
+	}
+	.projects .more {
+		display: none;
 	}
 }
 

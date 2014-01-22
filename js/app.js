@@ -29,10 +29,13 @@
 		init: function() {
 			// Events
 			if (document.addEventListener) {
-				document.getElementById('more-link').addEventListener('click', function(e) {
-					e.preventDefault();
-					app.moreClicked();
-				});
+				var mores = document.getElementsByClassName('more');
+				for (var i = 0; i < mores.length; i++) {
+					mores[i].addEventListener('click', function(e) {
+						e.preventDefault();
+						app.moreClicked(this);
+					});
+				}
 			}
 
 			// Do stuff
@@ -100,9 +103,10 @@
 		/**
 		 * "More" button was clicked.
 		 */
-		moreClicked: function() {
-			var projects = document.getElementById('projects');
-			app.scrollWindow(projects.offsetTop, 350);
+		moreClicked: function(link) {
+			var id = link.href.replace(/^.*?#/, ''),
+				target = document.getElementById(id);
+			app.scrollWindow(target.offsetTop, 350);
 		},
 
 		/**
