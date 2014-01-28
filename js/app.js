@@ -27,6 +27,9 @@
 		 * Add events and initialize the app.
 		 */
 		init: function() {
+			var profile = document.getElementById('profile'),
+				scrollOffset = 0;
+
 			// Events
 			if (document.addEventListener) {
 				var mores = document.getElementsByClassName('more');
@@ -36,6 +39,13 @@
 						app.moreClicked(this);
 					});
 				}
+			}
+
+			if (window.addEventListener) {
+				window.addEventListener('scroll', function() {
+					scrollOffset = document.documentElement.scrollTop / (profile.offsetTop + profile.clientHeight);
+					profile.style.opacity = scrollOffset < 1 ? 1 - scrollOffset : 0;
+				});
 			}
 
 			// Do stuff
