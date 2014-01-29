@@ -30,7 +30,15 @@ footer {
 
 		.github-link img {
 			border-radius: 50%;
+			transition: 0.5s;
 			width: 64px;
+		}
+
+		.github-link:hover img {
+			transform: rotate(180deg);
+			-moz-transform: rotate(180deg);
+			-o-transform: rotate(180deg);
+			-webkit-transform: rotate(180deg);
 		}
 
 h1, h2, h3, h4, h5, h6 {
