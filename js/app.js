@@ -9,7 +9,7 @@
 		 * @var array
 		 */
 		projectBlacklist: [
-			'NO', 'Giant-Bomb-Recommengine', 'spotify-flickrstream'
+			'Festivalist', 'NO', 'Giant-Bomb-Recommengine'
 		],
 
 		/**
