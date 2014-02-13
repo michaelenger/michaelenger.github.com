@@ -9,7 +9,7 @@
 		 * @var array
 		 */
 		projectBlacklist: [
-			'Festivalist', 'NO', 'Giant-Bomb-Recommengine'
+			'Festivalisten', 'NO'
 		],
 
 		/**
