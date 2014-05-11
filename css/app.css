@@ -193,12 +193,26 @@ section {
 		text-align: center;
 	}
 
+.screenshot {}
+
+	.screenshot .img-thumbnail {
+		width: 100%;
+	}
+
 @media screen and (max-width:991px) {
+	.projects {
+		padding: 2.5em 0;
+	}
+
 	.projects h3 {
 		margin-top: 0.25em;
 	}
 	.projects .more {
 		display: none;
+	}
+
+	.screenshot {
+		margin-top: 1.5em;
 	}
 }
 
