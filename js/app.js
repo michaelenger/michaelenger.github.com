@@ -17,10 +17,10 @@
 		 */
 		antiSpamMagicMissile: function() {
 			// Overkill? Yes. Spam? No.
-			var houseonthehill = 'thelonelycoder.com',
+			var houseonthehill = 'gmail.com',
 				banana = document.getElementById('banana'),
 				cmd = 'otliam';
-			banana.innerHTML = '<a href="' + cmd.split('').reverse().join('') + ':mike' + '&#64;' + houseonthehill + '">mike' + '&#64;' + houseonthehill + '</a>';
+			banana.innerHTML = '<a href="' + cmd.split('').reverse().join('') + ':meutvikling' + '&#64;' + houseonthehill + '">meutvikling' + '&#64;' + houseonthehill + '</a>';
 		},
 
 		/**
