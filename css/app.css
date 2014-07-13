@@ -53,8 +53,8 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
 	color: #444;
 }
 
-header {
-	background: url('../img/header.jpg') center center no-repeat;
+.contents {
+	background: url('../img/nsfw.jpg') center center no-repeat;
 	background-size: cover;
 	background-attachment: fixed;
 	box-shadow: 0px 1px 1px black;
@@ -64,54 +64,49 @@ header {
 	position: relative;
 }
 
-	header a,
-	header a:hover {
+	.contents a,
+	.contents a:hover {
 		color: inherit;
 	}
 
-	header h1 {
+	.contents h1 {
 		margin: 0 0 0.15em;
 	}
 
-		header h1 a:hover {
+		.contents h1 a:hover {
 			text-decoration: none;
 		}
 
-	header li {
+	.contents li {
 		line-height: 1.4em;
 	}
 
-	header p {
+	.contents p {
 		margin: 0.75em 0;
 		opacity: 0.7;
 	}
 
-	header ul {
+	.contents ul {
 		list-style: none;
 		margin: 0;
 		padding: 0;
 	}
 
-		header ul li {
+		.contents ul li {
 			display: inline;
 		}
 
-		header ul li:before {
+		.contents ul li:before {
 			content: '/';
 			margin: 0 0.5em;
 			opacity: 0.5;
 		}
 
-		header ul li:first-child:before {
+		.contents ul li:first-child:before {
 			display: none;
 		}
 
-	header .more {
-		margin-left: -25px;
-		width: 50px;
-	}
-
-	header .vcard {
+	.contents .vcard {
 		margin-top: 15%;
 		padding: 1em;
 		text-align: center;
@@ -127,100 +122,8 @@ section {
 	overflow: hidden;
 }
 
-.more {
-	bottom: 1em;
-	left: 50%;
-	opacity: 0.65;
-	position: absolute;
-	text-align: center;
-	transition: opacity 0.25s;
-}
-
-	.more img {
-		opacity: 0.25;
-	}
-
-.more:hover {
-	opacity: 1;
-	text-decoration: none;
-}
-
-.projects {
-	background: rgba(255,255,255,0.5);
-	box-shadow: 0 1px 15px black;
-	padding: 2.5em 0 0;
-	position: relative;
-}
-
-	.projects h2 {
-		display: none;
-	}
-
-	.projects h3 {
-		margin-top: 0.5em;
-	}
-
-	.projects p {
-		font-size: 1.1em;
-	}
-
-	.projects .more {
-		background: rgba(255,255,255,0.75);
-		border-radius: 1em;
-		margin-left: -6em;
-		padding: 0.25em 1em;
-	}
-
-	.projects .screenshot {
-		margin-bottom: 1em;
-	}
-
-.github-projects {
-	background: url('../img/pw_maze_black.png') #303030 fixed;
-	color: #eee;
-	font-size: 0.85em;
-}
-
-	.github-projects h3 {
-		font-size: 1.2em;
-	}
-
-	.github-projects .panel {
-		color: #ccc;
-		font-style: italic;
-		margin: 2em 0;
-		padding: 1em;
-		text-align: center;
-	}
-
-.screenshot {}
-
-	.screenshot .img-thumbnail {
-		width: 100%;
-	}
-
-@media screen and (max-width:991px) {
-	.projects {
-		padding: 2.5em 0;
-	}
-
-	.projects h3 {
-		margin-top: 0.25em;
-	}
-	.projects .more {
-		display: none;
-	}
-
-	.screenshot {
-		margin-top: 1.5em;
-	}
-}
-
 @media screen and (max-width:768px) {
-	.projects h3 {
-		margin-top: 0;
-	}
-	header .vcard {
+	.contents .vcard {
 		position: static;
 	}
 }
