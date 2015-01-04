@@ -8,14 +8,14 @@
 		 */
 		antiSpamMagicMissile: function() {
 			// Overkill? Yes. Spam? No.
-			var houseonthehill = 'gmail.com',
+			var houseonthehill = 'live.com',
 				banana = document.getElementById('banana'),
 				cmd = 'otliam',
 				classOf2004 = 'liame';
 			banana.innerHTML = '<a class="' +
 				classOf2004.split('').reverse().join('') + '" href="' +
-				cmd.split('').reverse().join('') + ':meutvikling' + '&#64;' +
-				houseonthehill + '">meutvikling' + '&#64;' + houseonthehill +
+				cmd.split('').reverse().join('') + ':michaelenger' + '&#64;' +
+				houseonthehill + '">michaelenger' + '&#64;' + houseonthehill +
 				'</a>';
 		},
 
