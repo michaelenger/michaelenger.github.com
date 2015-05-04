@@ -97,7 +97,7 @@ h1 small, h2 small, h3 small, h4 small, h5 small, h6 small {
 		}
 
 		.contents ul li:before {
-			content: '/';
+			content: ' / ';
 			margin: 0 0.5em;
 			opacity: 0.5;
 		}
