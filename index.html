@@ -88,41 +88,72 @@
       const MINUTE = 60;
       const HOUR = 60 * MINUTE;
       const DAY = 24 * HOUR;
+      const TARGET_DATE = new Date(2019, 2, 26, 15, 05);
 
       const contentsElem = document.getElementById("contents");
 
       function timeLeft() {
-        const targetDate = new Date(2019, 2, 26, 15, 05);
         const now = new Date();
-        return parseInt((targetDate - now) / 1000);
+        return parseInt((TARGET_DATE - now) / 1000);
       }
 
-      function displayDate(seconds) {
-        const days = Math.floor(seconds / DAY);
-        if (days > 0) seconds -= days * DAY;
-        const hours = Math.floor(seconds / HOUR);
-        if (hours > 0) seconds -= hours * HOUR;
-        const minutes = Math.floor(seconds / MINUTE);
-        if (minutes > 0) seconds -= minutes * MINUTE;
+      function parseTimeLeft(seconds) {
+        const data = {};
 
-        // Remove existing elements
+        const days = Math.floor(seconds / DAY);
+        if (days > 0) {
+          seconds -= days * DAY;
+          data["days"] = days;
+        }
+
+        const hours = Math.floor(seconds / HOUR);
+        if (hours > 0 || days > 0) {
+          seconds -= hours * HOUR;
+          data["hours"] = hours;
+        }
+
+        const minutes = Math.floor(seconds / MINUTE);
+        if (minutes > 0 || hours > 0 || days > 0) {
+          seconds -= minutes * MINUTE;
+          data["minutes"] = minutes;
+        }
+
+        data["seconds"] = seconds;
+
+        return data;
+      }
+
+      function displayDate(data) {
         while (contentsElem.firstChild) {
           contentsElem.removeChild(contentsElem.firstChild);
         }
 
-        // Shadow
-        const h2 = document.createElement("h2");
-        h2.innerText = `${days} days`;
-        contentsElem.appendChild(h2);
+        let extra = "";
+        let hasCreatedMain = false;
 
-        // Main
-        const h1 = document.createElement("h1");
-        h1.innerText = `${days} days`;
-        contentsElem.appendChild(h1);
+        for (const k in data) {
+          const text = `${data[k]} ${k}`;
+
+          if (!hasCreatedMain) {
+            // Shadow
+            const h2 = document.createElement("h2");
+            h2.innerText = text;
+            contentsElem.appendChild(h2);
+
+            // Main
+            const h1 = document.createElement("h1");
+            h1.innerText = text;
+            contentsElem.appendChild(h1);
+
+            hasCreatedMain = true;
+          } else {
+            extra += (extra != "" ? " " : "") + text;
+          }
+        }
 
         // Rest
         const h3 = document.createElement("h3");
-        h3.innerText = `${hours} hours ${minutes} minutes ${seconds} seconds`;
+        h3.innerText = extra;
         contentsElem.appendChild(h3);
       }
 
@@ -139,7 +170,8 @@
       function loop() {
         const left = timeLeft();
         if (left > 0) {
-          displayDate(left);
+          const data = parseTimeLeft(left);
+          displayDate(data);
           setTimeout(loop, 200);
         } else {
           showDone();
