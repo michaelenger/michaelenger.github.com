@@ -140,13 +140,13 @@
         const left = timeLeft();
         if (left > 0) {
           displayDate(left);
-          requestAnimationFrame(loop);
+          setTimeout(loop, 200);
         } else {
           showDone();
         }
       }
 
-      requestAnimationFrame(loop);
+      loop();
     </script>
   </body>
 </html>
