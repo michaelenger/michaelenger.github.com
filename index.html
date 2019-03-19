@@ -36,6 +36,7 @@
           violet
         ); /* Standard syntax (must be last) */
         background-clip: text;
+        -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
       h2 {
@@ -52,6 +53,7 @@
         background-color: rgba(0, 0, 0, 0.25);
         color: transparent;
         text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+        -webkit-background-clip: text;
         background-clip: text;
       }
 
@@ -91,12 +93,20 @@
       const MINUTE = 60;
       const HOUR = 60 * MINUTE;
       const DAY = 24 * HOUR;
-      const TARGET_DATE = new Date(2019, 2, 26, 15, 05);
+      const TARGET_DATE = new Date(2019, 2, 26, 14, 05); // Must be in UTC time
 
       const contentsElem = document.getElementById("contents");
 
       function timeLeft() {
-        const now = new Date();
+        const nowLocal = new Date();
+        const now = new Date(
+          nowLocal.getUTCFullYear(),
+          nowLocal.getUTCMonth(),
+          nowLocal.getUTCDate(),
+          nowLocal.getUTCHours(),
+          nowLocal.getUTCMinutes(),
+          nowLocal.getUTCSeconds()
+        );
         return parseInt((TARGET_DATE - now) / 1000);
       }
 
