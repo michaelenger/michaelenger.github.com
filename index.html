@@ -1,197 +1,200 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" />
-    <title>GTFO</title>
 
-    <style type="text/css">
-      body {
-        background: #fff;
-        color: #666;
-        font-family: "Helvetica Neue", Helvetica, sans-serif;
-        font-size: 32px;
-        font-weight: bold;
-        text-align: center;
-        text-transform: uppercase;
-      }
+<head>
+  <meta charset="utf-8" />
+  <title>GTFO</title>
 
-      h1,
-      h2 {
-        color: #666;
-        font-size: 4em;
-        font-weight: inherit;
-        margin: 0;
-      }
-      h1 {
-        display: inline-block;
-        position: relative;
-        background: linear-gradient(
-          to right,
-          red,
-          orange,
-          yellow,
-          green,
-          cyan,
-          blue,
-          violet
-        ); /* Standard syntax (must be last) */
-        background-clip: text;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-      }
-      h2 {
-        position: absolute;
-        left: 0;
-        right: 0;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-      }
+  <style type="text/css">
+    body {
+      background: #fff;
+      color: #666;
+      font-family: "Helvetica Neue", Helvetica, sans-serif;
+      font-size: 32px;
+      font-weight: bold;
+      text-align: center;
+      text-transform: uppercase;
+    }
 
-      h3 {
-        margin: 0;
-        font-size: inherit;
-        font-weight: inherit;
-        background-color: rgba(0, 0, 0, 0.25);
-        color: transparent;
-        text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
-        -webkit-background-clip: text;
-        background-clip: text;
-      }
+    h1,
+    h2 {
+      color: #666;
+      font-size: 4em;
+      font-weight: inherit;
+      margin: 0;
+    }
 
-      #background {
-        background: url("https://media.giphy.com/media/l3vRnoppYtfEbemBO/giphy.gif")
-          center center no-repeat #ddd;
-        background-size: cover;
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        opacity: 0.1;
-      }
+    h1 {
+      display: inline-block;
+      position: relative;
+      background: linear-gradient(to right,
+        red,
+        orange,
+        yellow,
+        green,
+        cyan,
+        blue,
+        violet);
+      /* Standard syntax (must be last) */
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
 
-      #contents {
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        left: 0;
-        right: 0;
-      }
-    </style>
-  </head>
+    h2 {
+      position: absolute;
+      left: 0;
+      right: 0;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
 
-  <body>
-    <div id="background"></div>
-    <div id="container">
-      <div id="contents">
-        <h2>?? days</h2>
-        <h1>?? days</h1>
-        <h3>? hours ? minutes ? seconds</h3>
-      </div>
+    h3 {
+      margin: 0;
+      font-size: inherit;
+      font-weight: inherit;
+      background-color: rgba(0, 0, 0, 0.25);
+      color: transparent;
+      text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.5);
+      -webkit-background-clip: text;
+      background-clip: text;
+    }
+
+    #background {
+      background: url("https://media.giphy.com/media/l3vRnoppYtfEbemBO/giphy.gif") center center no-repeat #ddd;
+      background-size: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      opacity: 0.1;
+    }
+
+    #contents {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      left: 0;
+      right: 0;
+    }
+
+  </style>
+</head>
+
+<body>
+  <div id="background"></div>
+  <div id="container">
+    <div id="contents">
+      <h2>?? days</h2>
+      <h1>?? days</h1>
+      <h3>? hours ? minutes ? seconds</h3>
     </div>
+  </div>
 
-    <script>
-      const MINUTE = 60;
-      const HOUR = 60 * MINUTE;
-      const DAY = 24 * HOUR;
-      const TARGET_DATE = new Date(2019, 2, 26, 14, 05); // Must be in UTC time
+  <script>
+    const MINUTE = 60;
+    const HOUR = 60 * MINUTE;
+    const DAY = 24 * HOUR;
+    const TARGET_DATE = new Date(2019, 2, 26, 14, 05); // Must be in UTC time
 
-      const contentsElem = document.getElementById("contents");
+    const contentsElem = document.getElementById("contents");
 
-      function timeLeft() {
-        const nowLocal = new Date();
-        const now = new Date(
-          nowLocal.getUTCFullYear(),
-          nowLocal.getUTCMonth(),
-          nowLocal.getUTCDate(),
-          nowLocal.getUTCHours(),
-          nowLocal.getUTCMinutes(),
-          nowLocal.getUTCSeconds()
-        );
-        return parseInt((TARGET_DATE - now) / 1000);
+    function timeLeft() {
+      const nowLocal = new Date();
+      const now = new Date(
+        nowLocal.getUTCFullYear(),
+        nowLocal.getUTCMonth(),
+        nowLocal.getUTCDate(),
+        nowLocal.getUTCHours(),
+        nowLocal.getUTCMinutes(),
+        nowLocal.getUTCSeconds()
+      );
+      return parseInt((TARGET_DATE - now) / 1000);
+    }
+
+    function parseTimeLeft(seconds) {
+      const data = {};
+
+      const days = Math.floor(seconds / DAY);
+      if (days > 0) {
+        seconds -= days * DAY;
+        data["day"] = days;
       }
 
-      function parseTimeLeft(seconds) {
-        const data = {};
-
-        const days = Math.floor(seconds / DAY);
-        if (days > 0) {
-          seconds -= days * DAY;
-          data["days"] = days;
-        }
-
-        const hours = Math.floor(seconds / HOUR);
-        if (hours > 0 || days > 0) {
-          seconds -= hours * HOUR;
-          data["hours"] = hours;
-        }
-
-        const minutes = Math.floor(seconds / MINUTE);
-        if (minutes > 0 || hours > 0 || days > 0) {
-          seconds -= minutes * MINUTE;
-          data["minutes"] = minutes;
-        }
-
-        data["seconds"] = seconds;
-
-        return data;
+      const hours = Math.floor(seconds / HOUR);
+      if (hours > 0 || days > 0) {
+        seconds -= hours * HOUR;
+        data["hour"] = hours;
       }
 
-      function displayDate(data) {
-        while (contentsElem.firstChild) {
-          contentsElem.removeChild(contentsElem.firstChild);
-        }
-
-        let extra = "";
-        let hasCreatedMain = false;
-
-        for (const k in data) {
-          const text = `${data[k]} ${k}`;
-
-          if (!hasCreatedMain) {
-            // Shadow
-            const h2 = document.createElement("h2");
-            h2.innerText = text;
-            contentsElem.appendChild(h2);
-
-            // Main
-            const h1 = document.createElement("h1");
-            h1.innerText = text;
-            contentsElem.appendChild(h1);
-
-            hasCreatedMain = true;
-          } else {
-            extra += (extra != "" ? " " : "") + text;
-          }
-        }
-
-        // Rest
-        const h3 = document.createElement("h3");
-        h3.innerText = extra;
-        contentsElem.appendChild(h3);
+      const minutes = Math.floor(seconds / MINUTE);
+      if (minutes > 0 || hours > 0 || days > 0) {
+        seconds -= minutes * MINUTE;
+        data["minute"] = minutes;
       }
 
-      function showDone() {
-        while (contentsElem.firstChild) {
-          contentsElem.removeChild(contentsElem.firstChild);
-        }
+      data["second"] = seconds;
 
-        const img = document.createElement("img");
-        img.src = "https://media.giphy.com/media/bXvwCQglnTGKs/giphy.gif";
-        contentsElem.appendChild(img);
+      return data;
+    }
+
+    function displayDate(data) {
+      while (contentsElem.firstChild) {
+        contentsElem.removeChild(contentsElem.firstChild);
       }
 
-      function loop() {
-        const left = timeLeft();
-        if (left > 0) {
-          const data = parseTimeLeft(left);
-          displayDate(data);
-          setTimeout(loop, 200);
+      let extra = "";
+      let hasCreatedMain = false;
+
+      for (const k in data) {
+        const text = `${data[k]} ${k}` + (data[k] !== 1 ? "s" : "");
+
+        if (!hasCreatedMain) {
+          // Shadow
+          const h2 = document.createElement("h2");
+          h2.innerText = text;
+          contentsElem.appendChild(h2);
+
+          // Main
+          const h1 = document.createElement("h1");
+          h1.innerText = text;
+          contentsElem.appendChild(h1);
+
+          hasCreatedMain = true;
         } else {
-          showDone();
+          extra += (extra != "" ? " " : "") + text;
         }
       }
 
-      loop();
-    </script>
-  </body>
+      // Rest
+      const h3 = document.createElement("h3");
+      h3.innerText = extra;
+      contentsElem.appendChild(h3);
+    }
+
+    function showDone() {
+      while (contentsElem.firstChild) {
+        contentsElem.removeChild(contentsElem.firstChild);
+      }
+
+      const img = document.createElement("img");
+      img.src = "https://media.giphy.com/media/bXvwCQglnTGKs/giphy.gif";
+      contentsElem.appendChild(img);
+    }
+
+    function loop() {
+      const left = timeLeft();
+      if (left > 0) {
+        const data = parseTimeLeft(left);
+        displayDate(data);
+        setTimeout(loop, 200);
+      } else {
+        showDone();
+      }
+    }
+
+    loop();
+  </script>
+</body>
+
 </html>
